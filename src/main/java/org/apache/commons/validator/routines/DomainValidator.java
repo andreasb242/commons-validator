@@ -149,12 +149,17 @@ public class DomainValidator implements Serializable {
      * @return true if the parameter is a TLD
      */
     public boolean isValidTld(String tld) {
-        if(allowLocal && isValidLocalTld(tld)) {
-           return true;
+        if (isValidLocalTld(tld)) {
+            return allowLocal;
         }
-        return isValidInfrastructureTld(tld)
-                || isValidGenericTld(tld)
-                || isValidCountryCodeTld(tld);
+//        if(allowLocal && isValidLocalTld(tld)) {
+//           return true;
+//        }
+
+        return true;
+//        return isValidInfrastructureTld(tld)
+//                || isValidGenericTld(tld)
+//                || isValidCountryCodeTld(tld);
     }
 
     /**
